@@ -49,6 +49,8 @@ elements:
         module:
           header:
             label: header
+          header_news:
+            label: header_news
           blog-sidemenu:
             label: blog-sidemenu
           entry-list:
