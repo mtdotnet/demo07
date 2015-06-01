@@ -1,12 +1,12 @@
-/*	################################################################
+/*  ################################################################
 
-	Author: 
-	URL: 
+    Author: 
+    URL: 
 
-	Project Name: 
-	Version: 1.0
-	URL: 
-	
+    Project Name: 
+    Version: 1.0
+    URL: 
+    
 ################################################################# */
 @import url(http://fonts.googleapis.com/css?family=Leckerli+One);
 /* ------------------------------------------
@@ -628,7 +628,24 @@ h1.page-title {
             background-size: 65px auto;
         }
     }
-
+.webpages.bgimg {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #fff;
+}
+.webpages.bgimg > .container > h3 {
+    color: #fff;
+}
+.webpages.bgimg > .container > h3:before{
+    background-position: 0 -50px;
+}
+    @media (max-width: 767px){
+        .webpages.bgimg > .container > h3:before{
+            background-position: 0 -25px;
+        }
+    }
 #top-news {
     padding: 40px 0;
     background: <$mt:Var name="color02"$>;
@@ -649,23 +666,42 @@ h1.page-title {
     display: block;
     height: 170px;
     overflow: hidden;
+    position: relative;
 }
-
-#top-news figure.noimage {
-    height: 170px;
-    background: <$mt:Var name="color01"$>;
-    padding: 20px 0;
-}
-#top-news figure.noimage span {
-    display: none;
-}
-#top-news figure.noimage:before {
+#top-news figure:before,
+#top-news figure:after {
     content: '';
     display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-width: 15px;
+    border-style: solid;
+}
+#top-news figure:before{
+    border-color: <$mt:Var name="color02"$> transparent transparent <$mt:Var name="color02"$>;
+    left: 0;
+    top: 0;
+}
+#top-news figure:after{
+    border-color: transparent <$mt:Var name="color02"$> <$mt:Var name="color02"$> transparent;
+    right: 0;
+    bottom: 0;
+}
+#top-news figure.noimage {
+    height: 170px;
+    padding: 20px 0;
+    background: <$mt:Var name="color01"$>
+}
+#top-news figure.noimage span {
+    display: block;
+    content: '';
     margin: 0 auto;
     width: 130px;
     height: 130px;
+    overflow: hidden;
     background: url(<$mt:Var name="sprite"$>) 0 -100px no-repeat;
+    text-indent: -999999px;
 }
 
 #top-news figure img {
@@ -879,4 +915,17 @@ body {
 .page-navigation li a[rel="next"]::after {
     content: "»";
     margin-left: 0.3em;
+}
+/*table*/
+.table>thead>tr>th {
+    border-bottom: 2px solid <$mt:Var name="color01"$>;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: 1px solid rgba(51,34,22,.3);
+}
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: rgba(51,34,22,.2);
+}
+.table {
+    border-bottom: 2px solid <$mt:Var name="color01"$>;
 }
